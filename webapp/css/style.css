@@ -1,0 +1,13 @@
+/* Enter your custom styles here */
+
+.pzebdeapp .myCustomButton.sapMBtn {
+    height: 75px;
+}
+
+.span.sapMBtnInner.sapMBtnEmphasized {
+    height: 200%;
+}
+
+.lblDateTime {
+    font-size: xx-large;
+}

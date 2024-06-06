@@ -1,0 +1,287 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:suite="sap.suite.ui.commons"
+	xmlns:html="http://www.w3.org/1999/xhtml" controllerName="ZAHR_PZEBDE.ZAHR_PZEBDE.controller.PZEBDE">
+	<App>
+		<pages>
+			<Page title="{i18n>title}" showNavButton="true" navButtonPress="onNavBack">
+				<content>
+					<IconTabBar selectedKey="__filter0" id="bar0" select="handleIconTabBarSelect">
+						<items>
+							<IconTabFilter text="PZE" icon="sap-icon://employee" id="filter0">
+								<content>
+									<sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="pzeGrid" defaultSpan="XL6 L6 M6 S12">
+										<sap.ui.layout:content>
+											<FlexBox width="100%" id="pzeBox0" direction="Column">
+												<items>
+													<sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="false" id="pzeForm">
+														<sap.ui.layout.form:formContainers>
+															<sap.ui.layout.form:FormContainer id="pzeContainer">
+																<sap.ui.layout.form:formElements>
+																	<sap.ui.layout.form:FormElement label="{i18n>labelAusweisnummer}" id="pzeElement0">
+																		<sap.ui.layout.form:fields>
+																			<Input width="100%" id="pzeInput0" editable="false"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement label="{i18n>labelPersonalnummer}" id="pzeElement2">
+																		<sap.ui.layout.form:fields>
+																			<Input width="100%" id="pzeInput1" editable="false"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement label="{i18n>labelName}" id="pzeElement3">
+																		<sap.ui.layout.form:fields>
+																			<Input width="100%" id="pzeInput2" editable="false"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement id="pzeElement4">
+																		<Button xmlns="sap.m" text="{i18n>buttonKommen}" id="pzeButton0" press="onKommen" width="100%" type="Emphasized"/>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement id="pzeElement5">
+																		<Button xmlns="sap.m" text="{i18n>buttonGehen}" id="pzeButton1" press="onGehen" width="100%"/>
+																	</sap.ui.layout.form:FormElement>
+																</sap.ui.layout.form:formElements>
+															</sap.ui.layout.form:FormContainer>
+														</sap.ui.layout.form:formContainers>
+														<sap.ui.layout.form:layout>
+															<sap.ui.layout.form:ResponsiveGridLayout id="pzeLayout"/>
+														</sap.ui.layout.form:layout>
+													</sap.ui.layout.form:Form>
+												</items>
+											</FlexBox>
+											<FlexBox width="100%" id="pzeBox1">
+												<suite:Timeline id="pzeTimeline" enableDoubleSided="true" height="100%" showFilterBar="false" enableScroll="false"/>
+											</FlexBox>
+										</sap.ui.layout:content>
+									</sap.ui.layout:Grid>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="BDE" icon="sap-icon://factory" id="filter1">
+								<content>
+									<sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="bdeGrid" defaultSpan="XL6 L6 M6 S12">
+										<sap.ui.layout:content>
+											<FlexBox width="100%" id="bdeBox0" direction="Column">
+												<items>
+													<Label text="{i18n>labelZuletztBearbeitet}" width="100%" id="bdeLabel0"/>
+													<List id="bdeList0" width="100%" itemPress="onItemPress"/>
+												</items>
+											</FlexBox>
+											<!--<FlexBox width="100%" id="bdeBox1" direction="Column">-->
+											<!--	<items>-->
+											<!--		<Label text="{i18n>labelAktuelleRueckmeldung}" width="100%" id="bdeLabel1"/>-->
+											<!--		<List id="bdeList1" width="100%" itemPress="onItemPress"/>-->
+											<!--	</items>-->
+											<!--</FlexBox>-->
+											<FlexBox width="100%" id="bdeBox2">
+												<items>
+													<sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" id="bdeForm">
+														<sap.ui.layout.form:formContainers>
+															<sap.ui.layout.form:FormContainer id="bdeContainer">
+																<sap.ui.layout.form:formElements>
+																	<sap.ui.layout.form:FormElement label="Fertigungsauftrag / Projekt" id="bdeElement0">
+																		<sap.ui.layout.form:fields>
+																			<Input width="100%" id="bdeInput0"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement id="bdeElement2">
+																		<Button xmlns="sap.m" text="{i18n>labelbuttonDetails}" press="onPressBearbeiten" id="bdeButton0" width="100%" type="Emphasized"/>
+																	</sap.ui.layout.form:FormElement>
+																</sap.ui.layout.form:formElements>
+															</sap.ui.layout.form:FormContainer>
+														</sap.ui.layout.form:formContainers>
+														<sap.ui.layout.form:layout>
+															<sap.ui.layout.form:ResponsiveGridLayout id="bdeLayout"/>
+														</sap.ui.layout.form:layout>
+													</sap.ui.layout.form:Form>
+												</items>
+											</FlexBox>
+										</sap.ui.layout:content>
+									</sap.ui.layout:Grid>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="BDE Detail" icon="sap-icon://task" id="filter2">
+								<content>
+									<sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="bdeDetailGrid" defaultSpan="XL6 L6 M6 S12">
+										<sap.ui.layout:content>
+											<FlexBox width="100%" id="bdeDetailBox0" direction="Column">
+												<items>
+													<sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" id="bdeDetailForm0">
+														<sap.ui.layout.form:formContainers>
+															<sap.ui.layout.form:FormContainer id="bdeDetailContainer0">
+																<sap.ui.layout.form:formElements>
+																	<sap.ui.layout.form:FormElement label="PSP Nummer" id="bdeDetailElement0">
+																		<sap.ui.layout.form:fields>
+																			<Input width="100%" id="bdeDetailInput0" editable="false"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement label="Fertigungsauftrag" id="bdeDetailElement1">
+																		<sap.ui.layout.form:fields>
+																			<Input width="100%" id="bdeDetailInput1" editable="false"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement label="Vorgang" id="bdeDetailElement2">
+																		<sap.ui.layout.form:fields>
+																			<Input width="100%" id="bdeDetailInput2" editable="false"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement label="Artikel" id="bdeDetailElement3">
+																		<sap.ui.layout.form:fields>
+																			<Input width="100%" id="bdeDetailInput3" editable="false"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement label="Kunde" id="bdeDetailElement4">
+																		<sap.ui.layout.form:fields>
+																			<Input width="100%" id="bdeDetailInput4" editable="false"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement label="Arbeitsplatz" id="bdeDetailElement5">
+																		<sap.ui.layout.form:fields>
+																			<Input width="100%" id="bdeDetailInput5" editable="false"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement label="Langtext" id="bdeDetailElement6">
+																		<sap.ui.layout.form:fields>
+																			<Input width="100%" id="bdeDetailInput6" editable="false"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																</sap.ui.layout.form:formElements>
+															</sap.ui.layout.form:FormContainer>
+														</sap.ui.layout.form:formContainers>
+														<sap.ui.layout.form:layout>
+															<sap.ui.layout.form:ResponsiveGridLayout id="bdeDetailLayout0"/>
+														</sap.ui.layout.form:layout>
+													</sap.ui.layout.form:Form>
+												</items>
+											</FlexBox>
+											<FlexBox width="100%" id="bdeDetailBox1" direction="Column">
+												<items>
+													<sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" id="bdeDetailForm1">
+														<sap.ui.layout.form:formContainers>
+															<sap.ui.layout.form:FormContainer id="bdeDetailContainer1">
+																<sap.ui.layout.form:formElements>
+																	<sap.ui.layout.form:FormElement label="GUT-Menge" id="bdeDetailElement7">
+																		<sap.ui.layout.form:fields>
+																			<Input width="100%" id="bdeDetailInput7" placeholder="0,00" type="Number"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement label="Ausschuss-Menge" id="bdeDetailElement8">
+																		<sap.ui.layout.form:fields>
+																			<Input width="100%" id="bdeDetailInput8" placeholder="0,00" type="Number"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement id="bdeDetailElement9">
+																		<sap.ui.layout.form:fields>
+																			<Button xmlns="sap.m" text="Beginn Fertigung" press="onPressBeginn" id="bdeDetailbutton0" type="Emphasized" width="100%"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement id="bdeDetailElement10">
+																		<sap.ui.layout.form:fields>
+																			<Button xmlns="sap.m" text="Unterbrechung Fertigung" press="onPressUnterbrechung" id="bdeDetailbutton1" width="100%"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement id="bdeDetailElement11">
+																		<sap.ui.layout.form:fields>
+																			<Button xmlns="sap.m" text="Mengenrückmeldung" press="onPressMenge" id="bdeDetailbutton2" width="100%"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																	<sap.ui.layout.form:FormElement id="bdeDetailElement12">
+																		<sap.ui.layout.form:fields>
+																			<Button xmlns="sap.m" text="Ende Fertigung" press="onPressEnde" id="bdeDetailbutton3" type="Emphasized" width="100%"/>
+																		</sap.ui.layout.form:fields>
+																	</sap.ui.layout.form:FormElement>
+																</sap.ui.layout.form:formElements>
+															</sap.ui.layout.form:FormContainer>
+														</sap.ui.layout.form:formContainers>
+														<sap.ui.layout.form:layout>
+															<sap.ui.layout.form:ResponsiveGridLayout id="bdeDetailLayout1"/>
+														</sap.ui.layout.form:layout>
+													</sap.ui.layout.form:Form>
+												</items>
+											</FlexBox>
+										</sap.ui.layout:content>
+									</sap.ui.layout:Grid>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="PZE Übersicht" icon="sap-icon://list" id="filter3">
+								<content>
+									<Table id="pzeOvTable" noDataText="Keine Einträge konnten gefunden werden" items="{/pzeTableData/results}">
+										<headerToolbar>
+											<OverflowToolbar>
+												<Title text="Zeitenrückmeldung PZE" level="H2"/>
+												<ToolbarSpacer/>
+												<Button tooltip="View Sort Settings" icon="sap-icon://sort" press="handleSortButtonPressed"/>
+												<Button tooltip="View Filter Settings" icon="sap-icon://filter" press="handleFilterButtonPressed"/>
+												<Button tooltip="View Group Settings" icon="sap-icon://group-2" press="handleGroupButtonPressed"/>
+											</OverflowToolbar>
+										</headerToolbar>
+										<infoToolbar>
+											<OverflowToolbar id="vsdFilterBar" visible="false">
+												<Text id="vsdFilterLabel"/>
+											</OverflowToolbar>
+										</infoToolbar>
+										<columns>
+											<Column width="12em"><Text text="Datum"/></Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Zeit"/></Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Zeitevent"/></Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Stundenanzahl"/></Column>
+										</columns>
+										<items>
+											<ColumnListItem>
+												<cells>
+													<ObjectIdentifier title="{date}"/>
+													<Text text="{time}"/>
+													<Text text="{tmvnt}"/>
+													<Text text="{hours}"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</content>
+							</IconTabFilter>
+							<IconTabFilter text="BDE Übersicht" icon="sap-icon://list" id="filter4">
+								<content>
+									<Table id="bdeOvTable" noDataText="Keine Einträge konnten gefunden werden" items="{/pdeTableData/results}">
+										<headerToolbar>
+											<OverflowToolbar>
+												<Title text="Zeitenrückmeldung BDE" level="H2"/>
+												<ToolbarSpacer/>
+												<Button tooltip="View Sort Settings" icon="sap-icon://sort" press="handleSortButtonPressedBde"/>
+												<Button tooltip="View Filter Settings" icon="sap-icon://filter" press="handleFilterButtonPressedBde"/>
+												<Button tooltip="View Group Settings" icon="sap-icon://group-2" press="handleGroupButtonPressedBde"/>
+											</OverflowToolbar>
+										</headerToolbar>
+										<infoToolbar>
+											<OverflowToolbar id="vsdFilterBarBde" visible="false">
+												<Text id="vsdFilterLabelBde"/>
+											</OverflowToolbar>
+										</infoToolbar>
+										<columns>
+											<Column width="12em"><Text text="Datum"/></Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Zeit"/></Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Fertigungsauftrag"/></Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Projekt"/></Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Serviceauftrag"/></Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Zeitevent"/></Column>
+											<Column minScreenWidth="Tablet" demandPopin="true"><Text text="Stundenanzahl"/></Column>
+										</columns>
+										<items>
+											<ColumnListItem>
+												<cells>
+													<ObjectIdentifier title="{date}"/>
+													<Text text="{time}"/>
+													<Text text="{productionOrder}"/>
+													<Text text="{process}"/>
+													<Text text="{project}"/>
+													<Text text="{serviceOrder}"/>
+													<Text text="{tmvnt}"/>
+													<Text text="{hours}"/>
+												</cells>
+											</ColumnListItem>
+										</items>
+									</Table>
+								</content>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
